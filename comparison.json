@@ -1,0 +1,66 @@
+[
+  {
+    "name": "React State + Props",
+    "boilerplate": "Low",
+    "learningCurve": "Easy",
+    "apiHandling": "Manual Fetching",
+    "scalability": "Low",
+    "performance": "Good",
+    "bestUseCase": "Small components / beginners"
+  },
+  {
+    "name": "Context API",
+    "boilerplate": "Low",
+    "learningCurve": "Easy",
+    "apiHandling": "Manual Fetching",
+    "scalability": "Medium",
+    "performance": "Good",
+    "bestUseCase": "Small to medium apps / avoiding prop drilling"
+  },
+  {
+    "name": "Redux Toolkit",
+    "boilerplate": "Medium",
+    "learningCurve": "Moderate",
+    "apiHandling": "Manual Fetching",
+    "scalability": "High",
+    "performance": "Excellent",
+    "bestUseCase": "Large apps / complex state / team projects"
+  },
+  {
+    "name": "RTK Query",
+    "boilerplate": "Medium",
+    "learningCurve": "Moderate",
+    "apiHandling": "Built-in Caching",
+    "scalability": "High",
+    "performance": "Excellent",
+    "bestUseCase": "API-heavy apps / data fetching / caching needs"
+  },
+  {
+    "name": "Zustand",
+    "boilerplate": "Low",
+    "learningCurve": "Easy",
+    "apiHandling": "Manual Fetching",
+    "scalability": "Medium-High",
+    "performance": "Excellent",
+    "bestUseCase": "Medium apps / minimal boilerplate / simplicity"
+  },
+  {
+    "name": "Recoil",
+    "boilerplate": "Low-Medium",
+    "learningCurve": "Moderate",
+    "apiHandling": "Manual Fetching",
+    "scalability": "High",
+    "performance": "Excellent",
+    "bestUseCase": "React-focused apps / atomic state / Facebook ecosystem"
+  },
+  {
+    "name": "Jotai",
+    "boilerplate": "Low",
+    "learningCurve": "Easy",
+    "apiHandling": "Manual Fetching",
+    "scalability": "Medium-High",
+    "performance": "Excellent",
+    "bestUseCase": "Modern React apps / atomic state / minimal API"
+  }
+]
+

@@ -1,0 +1,19 @@
+{
+  "name": "@post-manager/api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@post-manager/config": "workspace:*",
+    "@post-manager/types": "workspace:*",
+    "axios": "^1.6.2"
+  }
+}
+

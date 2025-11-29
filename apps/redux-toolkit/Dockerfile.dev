@@ -1,0 +1,20 @@
+FROM node:24-alpine
+
+ARG APP_NAME=redux-toolkit
+
+WORKDIR /workspace
+
+RUN npm install -g pnpm@latest
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages ./packages
+COPY apps/${APP_NAME} ./apps/${APP_NAME}
+
+RUN pnpm install --filter ${APP_NAME}... --prod=false
+
+WORKDIR /workspace/apps/${APP_NAME}
+
+EXPOSE 5173
+
+CMD ["pnpm", "dev", "--host"]
+

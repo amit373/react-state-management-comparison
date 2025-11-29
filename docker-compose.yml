@@ -1,0 +1,152 @@
+services:
+  # React State + Props
+  react-state-props:
+    build:
+      context: .
+      dockerfile: apps/react-state-props/Dockerfile
+    container_name: react-state-props
+    ports:
+      - "3001:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=react-state-props"
+      - "com.state-management.port=3001"
+
+  # Context API
+  context-api:
+    build:
+      context: .
+      dockerfile: apps/context-api/Dockerfile
+    container_name: context-api
+    ports:
+      - "3002:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=context-api"
+      - "com.state-management.port=3002"
+
+  # Redux Toolkit
+  redux-toolkit:
+    build:
+      context: .
+      dockerfile: apps/redux-toolkit/Dockerfile
+    container_name: redux-toolkit
+    ports:
+      - "3003:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=redux-toolkit"
+      - "com.state-management.port=3003"
+
+  # RTK Query
+  rtk-query:
+    build:
+      context: .
+      dockerfile: apps/rtk-query/Dockerfile
+    container_name: rtk-query
+    ports:
+      - "3004:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=rtk-query"
+      - "com.state-management.port=3004"
+
+  # Zustand
+  zustand:
+    build:
+      context: .
+      dockerfile: apps/zustand/Dockerfile
+    container_name: zustand
+    ports:
+      - "3005:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=zustand"
+      - "com.state-management.port=3005"
+
+  # Recoil
+  recoil:
+    build:
+      context: .
+      dockerfile: apps/recoil/Dockerfile
+    container_name: recoil
+    ports:
+      - "3006:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=recoil"
+      - "com.state-management.port=3006"
+
+  # Jotai
+  jotai:
+    build:
+      context: .
+      dockerfile: apps/jotai/Dockerfile
+    container_name: jotai
+    ports:
+      - "3007:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=jotai"
+      - "com.state-management.port=3007"
+
+networks:
+  state-management-network:
+    driver: bridge
+    name: state-management-network

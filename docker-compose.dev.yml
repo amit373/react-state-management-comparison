@@ -1,0 +1,218 @@
+services:
+  # React State + Props
+  react-state-props:
+    build:
+      context: .
+      dockerfile: apps/react-state-props/Dockerfile.dev
+    container_name: react-state-props-dev
+    ports:
+      - "3001:5173"
+    volumes:
+      - ./apps/react-state-props/src:/app/src
+      - ./apps/react-state-props/public:/app/public
+      - ./apps/react-state-props/index.html:/app/index.html
+      - ./apps/react-state-props/vite.config.ts:/app/vite.config.ts
+      - ./apps/react-state-props/tsconfig.json:/app/tsconfig.json
+      - ./apps/react-state-props/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/react-state-props/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/react-state-props/postcss.config.cjs:/app/postcss.config.cjs
+      - react-state-props-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=react-state-props"
+      - "com.state-management.port=3001"
+      - "com.state-management.mode=development"
+
+  # Context API
+  context-api:
+    build:
+      context: .
+      dockerfile: apps/context-api/Dockerfile.dev
+    container_name: context-api-dev
+    ports:
+      - "3002:5173"
+    volumes:
+      - ./apps/context-api/src:/app/src
+      - ./apps/context-api/public:/app/public
+      - ./apps/context-api/index.html:/app/index.html
+      - ./apps/context-api/vite.config.ts:/app/vite.config.ts
+      - ./apps/context-api/tsconfig.json:/app/tsconfig.json
+      - ./apps/context-api/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/context-api/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/context-api/postcss.config.cjs:/app/postcss.config.cjs
+      - context-api-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=context-api"
+      - "com.state-management.port=3002"
+      - "com.state-management.mode=development"
+
+  # Redux Toolkit
+  redux-toolkit:
+    build:
+      context: .
+      dockerfile: apps/redux-toolkit/Dockerfile.dev
+    container_name: redux-toolkit-dev
+    ports:
+      - "3003:5173"
+    volumes:
+      - ./apps/redux-toolkit/src:/app/src
+      - ./apps/redux-toolkit/public:/app/public
+      - ./apps/redux-toolkit/index.html:/app/index.html
+      - ./apps/redux-toolkit/vite.config.ts:/app/vite.config.ts
+      - ./apps/redux-toolkit/tsconfig.json:/app/tsconfig.json
+      - ./apps/redux-toolkit/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/redux-toolkit/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/redux-toolkit/postcss.config.cjs:/app/postcss.config.cjs
+      - redux-toolkit-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=redux-toolkit"
+      - "com.state-management.port=3003"
+      - "com.state-management.mode=development"
+
+  # RTK Query
+  rtk-query:
+    build:
+      context: .
+      dockerfile: apps/rtk-query/Dockerfile.dev
+    container_name: rtk-query-dev
+    ports:
+      - "3004:5173"
+    volumes:
+      - ./apps/rtk-query/src:/app/src
+      - ./apps/rtk-query/public:/app/public
+      - ./apps/rtk-query/index.html:/app/index.html
+      - ./apps/rtk-query/vite.config.ts:/app/vite.config.ts
+      - ./apps/rtk-query/tsconfig.json:/app/tsconfig.json
+      - ./apps/rtk-query/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/rtk-query/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/rtk-query/postcss.config.cjs:/app/postcss.config.cjs
+      - rtk-query-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=rtk-query"
+      - "com.state-management.port=3004"
+      - "com.state-management.mode=development"
+
+  # Zustand
+  zustand:
+    build:
+      context: .
+      dockerfile: apps/zustand/Dockerfile.dev
+    container_name: zustand-dev
+    ports:
+      - "3005:5173"
+    volumes:
+      - ./apps/zustand/src:/app/src
+      - ./apps/zustand/public:/app/public
+      - ./apps/zustand/index.html:/app/index.html
+      - ./apps/zustand/vite.config.ts:/app/vite.config.ts
+      - ./apps/zustand/tsconfig.json:/app/tsconfig.json
+      - ./apps/zustand/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/zustand/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/zustand/postcss.config.cjs:/app/postcss.config.cjs
+      - zustand-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=zustand"
+      - "com.state-management.port=3005"
+      - "com.state-management.mode=development"
+
+  # Recoil
+  recoil:
+    build:
+      context: .
+      dockerfile: apps/recoil/Dockerfile.dev
+    container_name: recoil-dev
+    ports:
+      - "3006:5173"
+    volumes:
+      - ./apps/recoil/src:/app/src
+      - ./apps/recoil/public:/app/public
+      - ./apps/recoil/index.html:/app/index.html
+      - ./apps/recoil/vite.config.ts:/app/vite.config.ts
+      - ./apps/recoil/tsconfig.json:/app/tsconfig.json
+      - ./apps/recoil/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/recoil/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/recoil/postcss.config.cjs:/app/postcss.config.cjs
+      - recoil-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=recoil"
+      - "com.state-management.port=3006"
+      - "com.state-management.mode=development"
+
+  # Jotai
+  jotai:
+    build:
+      context: .
+      dockerfile: apps/jotai/Dockerfile.dev
+    container_name: jotai-dev
+    ports:
+      - "3007:5173"
+    volumes:
+      - ./apps/jotai/src:/app/src
+      - ./apps/jotai/public:/app/public
+      - ./apps/jotai/index.html:/app/index.html
+      - ./apps/jotai/vite.config.ts:/app/vite.config.ts
+      - ./apps/jotai/tsconfig.json:/app/tsconfig.json
+      - ./apps/jotai/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/jotai/tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./apps/jotai/postcss.config.cjs:/app/postcss.config.cjs
+      - jotai-node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev --host
+    restart: unless-stopped
+    networks:
+      - state-management-network
+    labels:
+      - "com.state-management.app=jotai"
+      - "com.state-management.port=3007"
+      - "com.state-management.mode=development"
+
+networks:
+  state-management-network:
+    driver: bridge
+    name: state-management-network
+
+volumes:
+  react-state-props-node_modules:
+  context-api-node_modules:
+  redux-toolkit-node_modules:
+  rtk-query-node_modules:
+  zustand-node_modules:
+  recoil-node_modules:
+  jotai-node_modules:
+
